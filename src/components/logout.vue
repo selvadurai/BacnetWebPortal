@@ -11,7 +11,8 @@
       logout() {
         // Implement your logout logic here
         // For example, clear user data from localStorage or cookies
-        localStorage.removeItem('userSession');
+       // localStorage.removeItem('userSession');
+          this.$store.dispatch("killUserSession");
   
         // Redirect to the login page or any other desired route
         this.$router.push('/');

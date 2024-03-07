@@ -26,6 +26,8 @@
   
   <script>
   import axios from 'axios';
+  import { useStore } from 'vuex';
+
 
   
   export default {
@@ -37,6 +39,11 @@
         },
         loginError: false,
       };
+    },
+    created(){
+     // const store = useStore();
+
+
     },
     methods: {
       loginUser() {
@@ -62,7 +69,12 @@
             console.log('Login successful:', response.data);
 
 
-            localStorage.setItem('userSession',response.data);
+            //localStorage.setItem('userSession',response.data);
+
+            this.$store.dispatch('updateUserSession',response.data);
+
+            console.log("User session"+this.$store.getters.getSession);
+
 
          
 

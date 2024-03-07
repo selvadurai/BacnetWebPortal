@@ -1,15 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import store from '../stores'; 
 
 
 const isAuthenticated = () => {
   // Implement your logic to check if the user is logged in
   // For example, check if a user token exists in localStorage or cookies
-  return localStorage.getItem('userSession') !== null;
+  //return localStorage.getItem('userSession') !== null;
+  
+   console.log(store.getters.getSession);
+   return store.getters.getSession!==null;
 };
 
 const requireAuth = (to, from, next) => {
-  if (isAuthenticated()) {
+  if ( isAuthenticated()) {
     // If the user is authenticated, proceed to the requested route
     next();
   } else {
@@ -19,7 +23,7 @@ const requireAuth = (to, from, next) => {
 };
 
 const loggedIn = (to, from, next) => {
-  if (isAuthenticated()) {
+  if ( isAuthenticated()) {
     // If the user is authenticated, proceed to the requested route
     next('/home');
   } else {
@@ -48,7 +52,8 @@ const router = createRouter({
       path: '/home',
       name: 'home',
       component: HomeView,
-      beforeEnter: requireAuth 
+       beforeEnter: requireAuth ,
+    
     },
     
 

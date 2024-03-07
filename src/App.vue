@@ -31,9 +31,17 @@ export default {
     this.checkUserSession();
    // this.$router.go();
   },
+  mounted(){
+    this.checkUserSession();
+
+  },
   methods: {
     checkUserSession() {
-      const userSession=localStorage.getItem('userSession');
+     // const userSession=localStorage.getItem('userSession');
+      
+     const userSession=this.$store.getters.getSession;
+     console.log("user Session "+userSession);
+
 
       if(userSession!=null){
           this.hasUserSession = true;

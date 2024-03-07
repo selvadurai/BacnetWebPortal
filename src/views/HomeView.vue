@@ -3,9 +3,10 @@
     <TopMenu /> 
 
     <div>
+        <br>
 
-      <Diagonistic/>
-      <br>
+       <Diagonistic/>
+       <br>
 
        <ActiveApis/>
 
@@ -13,10 +14,10 @@
   </template>
   
   <script>
-
-  import ActiveApis from '../components/ActiveApis.vue'; 
-  import Diagonistic from '../components/Diagonstics.vue'; 
-  import TopMenu from '../components/MenuBar.vue';
+   import TopMenu from '../components/MenuBar.vue';
+   import ActiveApis from '../components/ActiveApis.vue'; 
+   import Diagonistic from '../components/Diagonstics.vue'; 
+   import MasterTable from '../components/MasterTable.vue';
   
   export default {
   
@@ -24,6 +25,7 @@
       ActiveApis, 
       Diagonistic,
       TopMenu,
+      MasterTable,
     },
 
  
