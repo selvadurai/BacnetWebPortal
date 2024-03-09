@@ -28,7 +28,7 @@ const loggedIn = (to, from, next) => {
     next('/home');
   } else {
     // If the user is not authenticated, redirect to the login page
-    next('/login');
+    next('/');
   }
 };
 
@@ -42,8 +42,8 @@ const router = createRouter({
     {
       path: '/',
       name: '',
-      component: () => import('../views/Login.vue')
-      //beforeEnter: requireAuth 
+      component: () => import('../views/Login.vue'),
+      //beforeEnter: loggedIn, 
     },
     
 

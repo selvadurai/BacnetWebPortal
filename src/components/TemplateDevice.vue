@@ -54,9 +54,11 @@ import axios from 'axios';
 
 export default {
   data() {
+    const currentUrl="http://"+window.location.hostname+":7007";
     return {
       devices: [],
       searchTerm: '',
+      currentUrl,
     };
   },
   created(){
@@ -79,7 +81,7 @@ export default {
     async fetchDevices() {
       
 
-        axios.get('http://localhost:7007/listAllTemplateDevices')
+        axios.get(this.currentUrl+'/listAllTemplateDevices')
           .then(res=> {
              this.devices = res.data
                      
@@ -97,7 +99,7 @@ export default {
 
           try {
             // Replace 'https://jsonplaceholder.typicode.com/todos/1' with your API endpoint
-            const response = await axios.post('http://localhost:7007/deleteTemplates',{
+            const response = await axios.post(this.currentUrl+'/deleteTemplates',{
                   markedDevices
             });
 

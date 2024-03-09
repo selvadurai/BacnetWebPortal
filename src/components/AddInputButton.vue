@@ -60,6 +60,8 @@ import axios from 'axios';
 
 export default {
   data() {
+    const currentUrl="http://"+window.location.hostname+":7007";
+
     return {
       inputCount: 0, // Initial count of input fields
       name: [],
@@ -67,6 +69,7 @@ export default {
       //instanceNumber: [],
       //reqDefault: [],
       templateName:"", // Replace with your actual TemplateName value
+      currentUrl,
     };
   },
   methods: {
@@ -110,7 +113,7 @@ export default {
       console.log(JSON.stringify(jsonData, null, 2));
       try {
         // Replace 'https://jsonplaceholder.typicode.com/todos/1' with your API endpoint
-        const response = await axios.post('http://localhost:7007/addDeviceTemplate',{
+        const response = await axios.post(this.currentUrl+'/addDeviceTemplate',{
           data:JSON.stringify(jsonData, null, 2),
         });
 

@@ -30,9 +30,12 @@
   
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         apis: [],
         searchTerm: '',
+        currentUrl,
       };
     },
     created(){
@@ -49,7 +52,7 @@
       async fetchDevices() {
         
   
-          axios.get('http://localhost:7007/listAllActiveApis')
+          axios.get(this.currentUrl+'/listAllActiveApis')
             .then(res=> {
                this.apis = res.data;
                //console.log(Object.keys(res.data));

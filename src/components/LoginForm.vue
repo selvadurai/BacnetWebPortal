@@ -32,16 +32,19 @@
   
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
       return {
         user: {
           username: '',
           password: '',
         },
         loginError: false,
+        currentUrl,
+      
       };
     },
     created(){
-     // const store = useStore();
+     
 
 
     },
@@ -62,8 +65,10 @@
         };
 
   
+  
+
         // Call your authentication endpoint
-        axios.post('http://localhost:7007/authenticate', userData)
+        axios.post(this.currentUrl+'/authenticate', userData)
           .then(response => {
             // Handle successful login (redirect, store token, etc.)
             console.log('Login successful:', response.data);

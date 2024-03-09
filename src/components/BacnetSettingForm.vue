@@ -68,8 +68,11 @@
   
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         bacnetConfig:[],
+        currentUrl,
         
        
           
@@ -79,6 +82,7 @@
     mounted() {
       // Fetch data from the API when the component is mounted
       this.fetchData();
+
     },
     created(){
       this.fetchData();
@@ -87,7 +91,7 @@
 
     async fetchData() {
         // Make a GET request to your API endpoint
-        axios.get('http://localhost:7007/getbacnetConfig')
+        axios.get(this.currentUrl+'/getbacnetConfig')
           .then(res=> {
             const data = res.data
             this.bacnetConfig =data;
@@ -102,7 +106,7 @@
      submit(){
 
           try {
-               const response =  axios.post('http://localhost:7007/updateBacnetConfig',{
+               const response =  axios.post(this.currentUrl+'/updateBacnetConfig',{
                 ipAddress:this.bacnetConfig.ipAddress,
                 submask:this.bacnetConfig.submask,
                 networkPrefix:this.bacnetConfig.networkPrefix,

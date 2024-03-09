@@ -29,6 +29,8 @@
   
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         parsedMemoryUsage: {
           heapUsed: '',
@@ -37,6 +39,7 @@
           nonHeapMax: '',
         },
         searchTerm: '',
+        currentUrl,
       };
     },
     created() {
@@ -44,7 +47,7 @@
     },
     methods: {
       async fetchDevices() {
-        axios.get('http://localhost:7007/Diagonistic')
+        axios.get(this.currentUrl+'/Diagonistic')
           .then(res => {
             const { heapMemoryUsage, nonHeapMemoryUsage } = res.data;
             this.parseMemoryUsage(heapMemoryUsage, nonHeapMemoryUsage);

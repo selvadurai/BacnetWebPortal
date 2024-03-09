@@ -14,6 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import TopMenu from './components/MenuBar.vue';
 
 
+
 export default {
   components: {
     TopMenu,
@@ -23,8 +24,10 @@ export default {
 
 
   data() {
+
     return {
       hasUserSession: false,
+
     };
   },
   created() {

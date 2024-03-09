@@ -28,10 +28,13 @@
   
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         templateList:[],
         tempId:'',
         deviceName:'',
+        currentUrl,
 
         
       };
@@ -41,13 +44,13 @@
       this.fetchData();
     },
     created(){
-      this.fetchData();
+     // this.fetchData();
     },
     methods: {
 
     async fetchData() {
         // Make a GET request to your API endpoint
-        axios.get('http://localhost:7007/listAllDeviceTemplate')
+        axios.get(this.currentUrl+'/listAllDeviceTemplate')
           .then(res=> {
             const data = res.data
             console.log(data);
@@ -64,7 +67,7 @@
 
           
           try {
-               const response =  axios.post('http://localhost:7007/addDevice',{
+               const response =  axios.post(this.currentUrl+'/addDevice',{
                   devTempId:this.tempId,
                   name:this.deviceName,
                   active:0,

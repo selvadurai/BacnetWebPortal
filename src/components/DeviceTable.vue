@@ -52,9 +52,12 @@
   
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         devices: [],
         searchTerm: '',
+        currentUrl,
       };
     },
     created(){
@@ -77,7 +80,7 @@
       async fetchDevices() {
         
   
-          axios.get('http://localhost:7007/listAllDevices')
+          axios.get(this.currentUrl+'/listAllDevices')
             .then(res=> {
                this.devices = res.data
                        
@@ -97,7 +100,7 @@
   
             try {
               // Replace 'https://jsonplaceholder.typicode.com/todos/1' with your API endpoint
-              const  response = await axios.post('http://localhost:7007/deleteDevices',{
+              const  response = await axios.post(this.currentUrl+'/deleteDevices',{
                     markedDevices
               });
   

@@ -35,10 +35,14 @@
   import axios from 'axios';
   
   export default {
+    
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         cacheBacnetList: [],
         searchTerm: '',
+        currentUrl,
       };
     },
     created() {
@@ -60,7 +64,7 @@
     methods: {
       async fetchDevices() {
         try {
-          const response = await axios.get('http://localhost:7007/cacheInstanceBacnetObjectList');
+          const response = await axios.get(this.currentUrl+'/cacheInstanceBacnetObjectList');
           this.cacheBacnetList = response.data;
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -73,7 +77,7 @@
   
         try {
           // Replace 'https://jsonplaceholder.typicode.com/todos/1' with your API endpoint
-          const response = await axios.post('http://localhost:7007/clearBacnetBroadcastCache', {
+          const response = await axios.post(this.currentUrl+'/clearBacnetBroadcastCache', {
              destroy:true,
           });
   

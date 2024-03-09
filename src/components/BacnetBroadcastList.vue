@@ -39,10 +39,14 @@
   
   
   export default {
+
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         bacnetBroadcastList: [],
         searchTerm: '',
+        currentUrl,
       };
     },
     created(){
@@ -58,7 +62,7 @@
       async fetchDevices() {
         
   
-          axios.get('http://localhost:7007/bacnetbroadcastlist')
+          axios.get(this.currentUrl+'/bacnetbroadcastlist')
             .then(res=> {
                this.bacnetBroadcastList = res.data
                console.log(res.data);
@@ -76,7 +80,7 @@
   
             try {
               // Replace 'https://jsonplaceholder.typicode.com/todos/1' with your API endpoint
-              const  response = await axios.post('http://localhost:7007/clearBacnetBroadcast',{
+              const  response = await axios.post(this.currentUrl+'/clearBacnetBroadcast',{
                     clearBacnetBroadcast:true
               });
   

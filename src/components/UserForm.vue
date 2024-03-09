@@ -36,10 +36,14 @@
 
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         user: {
           username: '',
           password: '',
+          currentUrl,
+
         },
         confirmPassword: '',
         passwordsDoNotMatch: false,
@@ -70,7 +74,8 @@
 
                 console.log("Username "+this.user.username+" "+"passowrd "+this.user.password);
 
-                axios.post('http://localhost:7007/userUpdateOrCreate',userData)
+
+                axios.post(this.currentUrl+'/userUpdateOrCreate',userData)
                 .then(res=> {
                    console.log("Send Successfully");
                        

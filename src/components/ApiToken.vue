@@ -39,9 +39,12 @@
   
   export default {
     data() {
+      const currentUrl="http://"+window.location.hostname+":7007";
+
       return {
         apiToken:"",
         searchTerm: '',
+        currentUrl,
       };
     },
     created(){
@@ -58,7 +61,7 @@
       async fetchDevices() {
         
   
-          axios.get('http://localhost:7007/getApiToken')
+          axios.get(this.currentUrl+'/getApiToken')
             .then(res=> {
                this.apiToken = res.data;
                //console.log(Object.keys(res.data));
@@ -89,7 +92,7 @@
   
         try {
           // Replace 'https://jsonplaceholder.typicode.com/todos/1' with your API endpoint
-          const  response = await axios.post('http://localhost:7007/generateNewTApiToken',{
+          const  response = await axios.post(this.currentUrl+'/generateNewTApiToken',{
                 clearBacnetBroadcast:true
           });
 
