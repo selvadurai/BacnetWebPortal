@@ -16,31 +16,27 @@
 * Date: May 8 2024
 -->
 
+<!-- ParentComponent.vue -->
 
 <template>
- 
+    <div>
+        <LoginForm/> 
+    </div>
   </template>
   
   <script>
-  export default {
-    created() {
-    this.logout() ;
-    },
-    methods: {
-      logout() {
-        // Implement your logout logic here
-        // For example, clear user data from localStorage or cookies
-       // localStorage.removeItem('userSession');
-          this.$store.dispatch("killUserSession");
+  import LoginForm from '../../components/Login/LoginForm.vue'; 
+
   
-        // Redirect to the login page or any other desired route
-        this.$router.push('/');
-      },
+  export default {
+    components: {
+      //FormExample, // Remove this line if AddInputButton is not needed in this component
+      LoginForm,
     },
   };
   </script>
   
   <style scoped>
-  /* Add your component-specific styles here */
+    /* Add styling for your parent component if needed */
   </style>
   

@@ -1,3 +1,4 @@
+<!-- ParentComponent.vue -->
 <!--
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,29 +19,35 @@
 
 
 <template>
- 
+    <TopMenu/>  
+  
+    <div>
+        <ListAllCacheBacnetList/>
+        <br>
+        <BacnetBroadcastLive/> 
+    </div>
   </template>
   
   <script>
-  export default {
-    created() {
-    this.logout() ;
-    },
-    methods: {
-      logout() {
-        // Implement your logout logic here
-        // For example, clear user data from localStorage or cookies
-       // localStorage.removeItem('userSession');
-          this.$store.dispatch("killUserSession");
+  import BacnetBroadcastLive from '../../components/Tables/BacnetBroadcastList.vue'; 
+  import ListAllCacheBacnetList from '../../components/Tables/ListAllCacheBacnetList.vue'; 
+  import TopMenu from '../../components/MenuBar.vue'; 
+
   
-        // Redirect to the login page or any other desired route
-        this.$router.push('/');
-      },
+
+  
+  export default {
+    components: {
+      //FormExample, // Remove this line if AddInputButton is not needed in this component
+      BacnetBroadcastLive,
+      ListAllCacheBacnetList,
+      TopMenu,
     },
   };
   </script>
   
   <style scoped>
-  /* Add your component-specific styles here */
+    /* Add styling for your parent component if needed */
   </style>
+  
   

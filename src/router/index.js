@@ -1,3 +1,23 @@
+/*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <https://www.gnu.org/licenses/>.
+*
+* Author: Jonathan Kevin Selvadurai
+* Date: May 8 2024
+*/
+
+
+
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import store from '../stores'; 
@@ -42,7 +62,7 @@ const router = createRouter({
     {
       path: '/',
       name: '',
-      component: () => import('../views/Login.vue'),
+      component: () => import('../views/Login/Login.vue'),
       //beforeEnter: loggedIn, 
     },
     
@@ -60,7 +80,7 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Login.vue'),
+      component: () => import('../views/Login/Login.vue'),
       beforeEnter:loggedIn
 
     },
@@ -80,7 +100,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AddTemplate.vue'),
+      component: () => import('../views/Template/AddTemplate.vue'),
       beforeEnter: requireAuth 
 
 
@@ -92,7 +112,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/TemplateDeviceTable.vue'),
+      component: () => import('../views/Template/TemplateDeviceTable.vue'),
       beforeEnter: requireAuth 
 
 
@@ -103,7 +123,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AddDevice.vue'),
+      component: () => import('../views/Device/AddDevice.vue'),
       beforeEnter: requireAuth 
 
     },
@@ -114,7 +134,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/DeviceList.vue'),
+      component: () => import('../views/Device/DeviceList.vue'),
       beforeEnter: requireAuth 
 
 
@@ -125,7 +145,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/BacnetSettings.vue'),
+      component: () => import('../views/Bacnet/BacnetSettings.vue'),
       beforeEnter: requireAuth 
 
     },
@@ -135,7 +155,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/BacnetBroadcast.vue'),
+      component: () => import('../views/Bacnet/BacnetBroadcast.vue'),
       beforeEnter: requireAuth  
 
     },
@@ -145,7 +165,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/DisplayApiToken.vue'),
+      component: () => import('../views/API/DisplayApiToken.vue'),
       beforeEnter: requireAuth 
 
     },
@@ -155,7 +175,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/createOrUpdateUser.vue'),
+      component: () => import('../views/User/createOrUpdateUser.vue'),
       beforeEnter: requireAuth  
 
     },
